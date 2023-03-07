@@ -19,7 +19,7 @@ export function SupplierForm() {
         formData.append('logo', data.logo[0]);
         formData.append('address', data.address);
         try {
-          const response = await axios.post('http://127.0.0.1:5000/api/supplier', formData);
+          const response = await axios.post('http://127.0.0.1:8080/api/supplier', formData);
           if(response.status == 201){
             alert('Supplier created');
           }
