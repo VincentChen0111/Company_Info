@@ -1,46 +1,72 @@
-# Getting Started with Create React App
+# Supplier Information Upload
+
+This a project built as part of the interview process for Rundoo. [Requirement Link](https://you.ashbyhq.com/rundoo/assignment/7b62bf0f-8788-4e7f-a4a3-90603a2f765d)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+This is a web application for managing supplier details. It allows users to create a new supplier by providing their name, logo, and address.
 
-In the project directory, you can run:
+The application is built using the following technologies:
 
-### `npm start`
+- React (front-end)
+- TypeScript (front-end)
+- Flask (back-end)
+- SQLite (database)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Installation
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+To install the application, follow these steps:
 
-### `npm test`
+1. Clone the repository to your local machine:
+    ```
+    git clone https://github.com/VincentChen0111/Supplier_Info.git
+    ```
+2. Prepare the environments: Node.js ; Python3 ; SQLite3
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+3. Install the required dependencies for the front-end and back-end:
+    ```
+    npm install
+    pip install -r requirements.txt
+    ```
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Development Build
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+To start the development application, follow these steps:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+1. Start the front-end development server:
+    ```
+    npm start
+    ```
+This will start the React development server on port 3000.
 
-### `npm run eject`
+2. Start the back-end development server:
+    ```
+    python ./server/server.py
+    ```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+This will start the Flask development server on port 8080.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+3. Open a web browser and navigate to `http://localhost:3000` to use the application.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Production Build
 
-## Learn More
+To build the application for production, follow these steps:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+1. Build the front-end code:
+    ```
+    npm run build
+    ```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+2. Run the production front-end by code:
+    ```
+    npx serve -s build
+    ```
+
+## Usage
+
+1. The front-end provides a web form for submitting supplier info. This info will be posted to the server side and stored in the sqlite database (./server/database/Supplier.db)
+2. The back-end checks if the logo is correctly an image icon, accept and store in ./server/logos for vaild check, reject otherwise. Note the name of logo will be renamed to the unique company id assigned by the database management.
+3. To check the database, it is suggested to use the DB Browser(SQLite)
+
