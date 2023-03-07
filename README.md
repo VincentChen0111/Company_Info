@@ -70,3 +70,16 @@ To build the application for production, follow these steps:
 2. The back-end checks if the logo is correctly an image icon, accept and store in ./server/logos for vaild check, reject otherwise. Note the name of logo will be renamed to the unique company id assigned by the database management.
 3. To check the database, it is suggested to use the DB Browser(SQLite)
 
+## Reference
+
+How to build elegant React forms with React Hook Form
+https://react-hook-form.com/api/useform/
+TypeScript and Axios Intro - React Tutorial 54
+https://javascript.info/formdata
+https://pynative.com/python-sqlite-insert-into-table/
+How to use REACT HOOK FORM with TYPESCRIPT
+How To Create An Advanced Shopping Cart With React and TypeScript
+Sending post data onto Dummy API using React Hooks; Promises with Axios | Explained
+https://www.digitalocean.com/community/tutorials/how-to-make-a-web-application-using-flask-in-python-3
+
+
