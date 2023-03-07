@@ -4,11 +4,11 @@ import os
 
 app = Flask(__name__)
 logo_save_folder = '.\\logos'
-logo_file_types = {'png', 'jpg', 'jpeg', 'gif'}
+logo_file_types = {'.png', '.jpg', '.jpeg', '.gif', '.ico'}
 
 def allowed_logo_file(filename):
     return '.' in filename and \
-        filename.rsplit('.', 1)[1].lower() in logo_file_types
+        os.path.splitext(filename)[1].lower() in logo_file_types
 
 @app.route('/api/supplier', methods=['POST'])
 def create_supplier():
@@ -26,9 +26,13 @@ def create_supplier():
         address = request.form['address']
         logo = request.files['logo']
         if logo and allowed_logo_file(logo.filename):
-            filename = logo.filename
-            logo.save(os.path.join(logo_save_folder, filename))
-            cursor.execute(SQL_insert_query,(name,filename,address))
+            cursor.execute('SELECT max(id) FROM supplier')
+            autoincrement_id = cursor.fetchone()[0] + 1
+
+            filename = str(autoincrement_id) +  os.path.splitext(logo.filename)[1].lower()
+            path = os.path.join(logo_save_folder, filename)
+            logo.save(path)
+            cursor.execute(SQL_insert_query,(name,path,address))
             sqliteConnection.commit()
             cursor.close()
 
